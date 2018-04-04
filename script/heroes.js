@@ -10,7 +10,7 @@ request.responseType = 'json';
 request.send();
 // waiting for the response to return from the server, then dealing with it
 request.onload = function () {
-    var superHeroes = request.response;
+    var superHeroes = request.response; // get the string from the response
     populateHeader(superHeroes);
     showHeroes(superHeroes);
 }
@@ -78,5 +78,17 @@ function showHeroes(jsonObj) {
         myArticle.appendChild(myPara3);
         myArticle.appendChild(myList);
         section.appendChild(myArticle);
+
+        function addClass(){
+            var element, name, arr;
+
+            element = document.getElement("article");
+            name = "card";
+            arr = element.className.split(" ");
+
+            if (arr.indexOf(name)==-1){
+                element.className += " " + name;
+            }
+        }
     }
 }
